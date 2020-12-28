@@ -1,0 +1,36 @@
+.btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border-radius: 4px;
+  font-size: 12px !important;
+  font-weight: bold;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-main {
+  border: 2px solid $color-main;
+  background: $color-main;  
+  color: $white !important;
+
+  &:hover {
+    background-color: $color-main;
+    color: $white;
+  }
+}
+
+.btn-white {
+  border: 2px solid $white;
+  background: $white;  
+  font-size: 16px !important;
+  color: $black-02 !important;
+}

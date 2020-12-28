@@ -1,0 +1,33 @@
+// Text
+.text-white {
+  color: $white;
+}
+
+.text-black {
+  color: $black-01;
+}
+
+.text-black--secondary {
+  color: $black-02;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// Spacing
+.mt-1 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.mb-5 {
+  margin-bottom: 3rem !important;
+}

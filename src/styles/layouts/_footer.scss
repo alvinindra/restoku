@@ -1,0 +1,13 @@
+footer {
+  height: 65px;
+  background-color: $color-main;
+  color: $white;
+  font-weight: bold;
+  text-align: center;
+
+  ul {
+    li {
+      font-family: 'Roboto';
+    }
+  }
+}
