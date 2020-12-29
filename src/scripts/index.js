@@ -1,2 +1,3 @@
-import 'regenerator-runtime'; /* for async await transpile */
-import '../styles/main.scss';
+import 'regenerator-runtime' /* for async await transpile */
+import '../styles/main.scss'
+import './views/pages/resto-list'

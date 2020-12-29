@@ -1,4 +1,8 @@
 // Theme
+html,body {
+  scroll-behavior: smooth;
+}
+
 .bg-main {
   background-color: $color-main;
 }
@@ -31,8 +35,6 @@
   background-blend-mode: darken;
   background-size: cover;
   width: 100%;
-  height: 680px;
-  margin-top: 78px;
 
   .container {
     padding-top: 180px;
@@ -48,12 +50,17 @@
 .section-two {
   background-color: $color-grey;
 
+  .title-section {
+    padding-top: 2rem;
+    text-align: center;
+  }
+
   .resto-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 30px;
 
-    .resto-content__desc {
+    &__desc {
       background: $white;
       border: 1px solid $white;
       box-sizing: border-box;
@@ -86,10 +93,11 @@
     position: relative;
     padding-bottom: 3rem;
 
-    .list-resto__container {
+    &__container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-column-gap: 30px;
+      grid-row-gap: 30px;;
     }
   }
 }
