@@ -35,6 +35,7 @@ html,body {
   background-blend-mode: darken;
   background-size: cover;
   width: 100%;
+  height: 760px;
 
   .container {
     padding-top: 180px;
@@ -51,7 +52,7 @@ html,body {
   background-color: $color-grey;
 
   .title-section {
-    padding-top: 2rem;
+    padding-top: 50px;
     text-align: center;
   }
 
@@ -67,6 +68,12 @@ html,body {
       box-shadow: 2px 2px 50px 2px rgba(0, 0, 0, 0.05);
       border-radius: 20px;
       padding: 64px 42px;
+    }
+  }
+
+  .resto-cover {
+    &__img {
+      box-shadow: 2px 2px 50px 2px rgba(0, 0, 0, 0.05);
     }
   }
 }
