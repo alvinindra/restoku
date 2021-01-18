@@ -39,6 +39,19 @@
         font-weight: bold;
       }
     }
+
+    .card-cover__city {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      background: #414141b3;
+      text-align: center;
+      font-weight: bold;
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+      color: $white;
+      padding: 10px 30px;
+    }
   }
 
   .card-desc {

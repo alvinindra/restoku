@@ -13,6 +13,7 @@ function getRestaurants(data) {
         <div class="card-cover">
           <img class="card-cover__img" draggable="false" src="${restoItem.pictureId}" alt="${restoItem.name}">
           <div class="card-cover__rating"><img src="./images/content/star-rating.png" alt="Star"><span>${restoItem.rating}</span></div>
+          <div class="card-cover__city">${restoItem.city}</div>
         </div>
         <div class="card-desc">
           <h3 class="card-title mx-3">${restoItem.name}</h3>
