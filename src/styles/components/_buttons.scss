@@ -17,17 +17,6 @@
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.btn-main {
-  border: 2px solid $color-main;
-  background: $color-main;  
-  color: $white !important;
-
-  &:hover {
-    background-color: $color-main;
-    color: $white;
-  }
-}
-
 .btn-white {
   border: 2px solid $white;
   background: $white;  

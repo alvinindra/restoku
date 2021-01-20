@@ -18,7 +18,7 @@ function getRestaurants(data) {
         <div class="card-desc">
           <h3 class="card-title mx-3">${restoItem.name}</h3>
           <p class="card-desc__text">
-            ${restoItem.description.slice(0,200)}
+            ${restoItem.description.slice(0,197)}...
           </p>
         </div>
       </div>`
