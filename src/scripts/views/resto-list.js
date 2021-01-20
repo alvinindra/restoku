@@ -1,8 +1,6 @@
-fetch("data-resto.json")
-  .then((response) => response.json())
-  .then((data) => {
-    getRestaurants(data);
-  });
+import data from '../data/data-resto.json'
+
+getRestaurants(data)
 
 function getRestaurants(data) {
   const content = document.querySelector('#resto-list')
