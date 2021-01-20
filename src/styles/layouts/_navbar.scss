@@ -21,9 +21,9 @@
     .nav-item {
       a {
         position: relative;
-        padding: 0.5rem 1rem;
+        padding: 13px 16px;
         display: inline-block;
-        font-size: 14px;
+        font-size: 14px !important;
         font-weight: bold;
         color: $black-02;
         text-decoration: none;
