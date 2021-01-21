@@ -1,7 +1,11 @@
 .open-nav {
   display: none;
   font-size: 28px;
+  margin-top: 16px;
+  width: 44px;
+  height: 44px;
   color: $black-02;
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
 }
@@ -14,7 +18,7 @@
   top: 0;
   left: 0;
   background-color: $color-main;
-  box-shadow: 1px 1px 8px 0px $box-shadow;
+  box-shadow: 1px 1px 8px 0 $box-shadow;
   overflow-x: hidden;
   padding-top: 80px;
   transition: 0.5s;
