@@ -11,6 +11,7 @@
 }
 
 .sidenav-list {
+  display: none;
   height: 100%;
   width: 0;
   position: fixed;
@@ -24,6 +25,7 @@
   transition: 0.5s;
 
   &.open {
+    display: block;
     width: 250px;
   }
 }

@@ -1,5 +1,5 @@
 footer {
-  height: 65px;
+  padding: 16px;
   background-color: $color-main;
   color: $white;
   font-weight: bold;
@@ -7,7 +7,7 @@ footer {
 
   ul {
     li {
-      font-family: 'Roboto';
+      font-family: "Roboto";
     }
   }
 }
