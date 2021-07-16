@@ -22,6 +22,10 @@
   overflow-x: hidden;
   padding-top: 80px;
   transition: 0.5s;
+
+  &.open {
+    width: 250px;
+  }
 }
 
 .sidenav-list {
@@ -40,10 +44,10 @@
 
   .sidenav-list__close {
     position: absolute;
+    padding: 8px 24px;
     top: 0;
-    right: 25px;
+    right: 0;
     font-size: 36px;
-    margin-left: 50px;
   }
 }
 

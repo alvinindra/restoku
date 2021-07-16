@@ -1,20 +1,13 @@
-import 'regenerator-runtime'
-import '../styles/main.scss'
-import './views/resto-list'
+/* eslint-disable no-unused-vars */
+import 'regenerator-runtime';
+import '../styles/main.scss';
+import './views/resto-list';
 
-document.querySelector("#openNav").addEventListener("click", function () {
-  document.getElementById("sideNav").style.width = "250px"
-  event.stopPropagation();
-})
+import App from './views/app';
 
-document.querySelector("#closeNav").addEventListener("click", function () {
-  document.getElementById("sideNav").style.width = "0"
-  event.stopPropagation();
-})
-
-const mainElement = document.querySelector("main");
- 
-mainElement.addEventListener("click", event => {
-  document.getElementById("sideNav").style.width = "0"
-  event.stopPropagation();
-})
+const app = new App({
+  button: document.querySelector('#openNav'),
+  closeButton: document.querySelector('#closeNav'),
+  drawer: document.querySelector('#sideNav'),
+  content: document.querySelector('#mainContent'),
+});

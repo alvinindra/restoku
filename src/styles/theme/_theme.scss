@@ -1,5 +1,6 @@
 // Theme
-html,body {
+html,
+body {
   scroll-behavior: smooth;
 }
 
@@ -88,7 +89,7 @@ html,body {
 }
 
 .section-three {
-  .waves-container { 
+  .waves-container {
     position: relative;
 
     .waves-2 {
@@ -114,7 +115,7 @@ html,body {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-column-gap: 30px;
-      grid-row-gap: 30px;;
+      grid-row-gap: 30px;
     }
   }
 }
@@ -140,7 +141,7 @@ html,body {
   .section-two {
     .resto-content {
       grid-template-columns: 1fr;
-  
+
       .resto-cover {
         display: none;
       }
@@ -161,7 +162,7 @@ html,body {
         .hero-content__logo {
           width: 350px;
         }
-    
+
         .hero-content__title {
           font-size: 28px;
         }
@@ -204,7 +205,7 @@ html,body {
         .hero-content__logo {
           width: 300px;
         }
-    
+
         .hero-content__title {
           font-size: 24px;
         }
@@ -219,12 +220,12 @@ html,body {
 
     .container {
       padding-top: 160px;
-      
+
       .hero-content {
         .hero-content__logo {
           width: 250px;
         }
-    
+
         .hero-content__title {
           font-size: 20px;
         }
