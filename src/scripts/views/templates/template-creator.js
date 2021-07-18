@@ -62,7 +62,94 @@ const restoItemTemplate = (restoItem) => `
   </div>
 `;
 
+const createDetailPageTemplate = () => `
+  <div class="container container--detail">
+    <div class="card-detail">
+      <img src="https://placehold.co/375x300?text=Contoh" class="card-detail__img" />
+      <div class="card-detail__text">
+        <div class="text-rating"><img src="./images/content/star-rating.png" alt="Star"><span>4.8</span></div>
+        <div class="text-title">Run chicken Run - Kota Bandung</div>
+        <div class="text-title--desc">Alamat :</div>
+        <p class="text-desc">
+          Jln. Pandeglang no 19, Medan
+        </p>
+        <div class="text-title--desc">Deskripsi Resto :</div>
+        <p class="text-desc">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, peahaeh
+        </p>
+        <p class="text-desc">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, peahaeh
+        </p>
+        <div class="text-title--desc">Kategori :
+          <span class="category">Western</span>
+          <span class="category">Modern</span>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card-menu">
+        <h2 class="text-center mb-4">
+          Menu
+        </h2>
+
+        <div class="card-menu__list">
+          <div class="foods">
+            <table>
+              <tr>
+                <th>
+                  Makanan
+                </th>
+              </tr>
+              <tr>
+                <td>Ayam Suka Bakar Bumi</td>
+              </tr>
+            </table>
+          </div>
+          <div class="drinks">
+            <table>
+              <tr>
+                <th>
+                  Minuman
+                </th>
+              </tr>
+              <tr>
+                <td>Dalgona Milkshake</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <form class="form-review">
+        <h2 class="mb-4 text-center">Ulasan</h2>
+        <div class="form-review__list">
+          <div class="review">
+            <div class="review__name">
+              Alvin Indra
+            </div>
+            <div class="review__desc">
+              Wah tempatnya nyaman banget!
+            </div>
+            <div class="review__date">
+              18 Juli 2021
+            </div>
+            <hr />
+          </div>
+        </div>
+        <div class="mb-4">
+          <input type="text" placeholder="Nama" class="form-review__input" id="inputName">
+          <textarea placeholder="Tulis Ulasan" class="form-review__input" aria-label="Tulis Ulasan" id="inputReview"></textarea>
+        </div>
+        <button id="submit-review" type="submit" aria-label="Kirim Ulasan" class="btn btn-primary">Kirim Ulasan</button>
+      </form>
+    </div>
+  </div>
+`;
+
 export {
   createHomePageTemplate,
   restoItemTemplate,
+  createDetailPageTemplate,
 };
