@@ -2,7 +2,6 @@ import 'regenerator-runtime';
 import '../styles/main.scss';
 import './views/components/app-bar';
 import './views/components/footer-bar';
-import CONFIG from './globals/config';
 
 import App from './views/app';
 import swRegister from './utils/sw-register';
