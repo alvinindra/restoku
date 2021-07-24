@@ -2,6 +2,8 @@ import 'regenerator-runtime';
 import '../styles/main.scss';
 import './views/components/app-bar';
 import './views/components/footer-bar';
+import WebSocketInitiator from './utils/websocket-initiator';
+import CONFIG from './globals/config';
 
 import App from './views/app';
 import swRegister from './utils/sw-register';
@@ -14,11 +16,12 @@ const app = new App({
 });
 
 window.addEventListener('hashchange', () => {
-  document.querySelector('header').scrollIntoView();
+  document.querySelector('#mainContent').scrollIntoView();
   app.renderPage();
 });
 
 window.addEventListener('load', () => {
   app.renderPage();
   swRegister();
+  WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
 });

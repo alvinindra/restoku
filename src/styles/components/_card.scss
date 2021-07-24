@@ -12,7 +12,7 @@
 
     .card-cover__img {
       width: 100%;
-      max-height: 230px;
+      height: 230px;
       object-fit: cover;
       border-radius: 15px;
       margin-bottom: 0.5rem;
@@ -32,6 +32,8 @@
       color: $white;
 
       img {
+        width: 15px;
+        height: 14px;
         margin-bottom: 0.25rem;
         margin-right: 0.25rem;
       }

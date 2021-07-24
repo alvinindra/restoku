@@ -15,7 +15,7 @@ const Home = {
         restoList.innerHTML += restoItemTemplate(restaurant);
       });
     } catch (error) {
-      console.log(error);
+      restoList.innerHTML = `Error: ${error}, muat ulang halaman!`;
     }
   },
 };

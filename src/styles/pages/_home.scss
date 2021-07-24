@@ -1,3 +1,11 @@
+.nav-logo {
+  &__restoku {
+    img {
+      width: 140px;
+      height: 30px;
+    }
+  }
+}
 .hero {
   background: url("/images/heros/hero-image.jpg") no-repeat center;
   background-blend-mode: darken;
@@ -50,6 +58,7 @@
 
   .resto-cover {
     &__img {
+      height: 500px;
       box-shadow: 2px 2px 50px 2px rgba(0, 0, 0, 0.05);
     }
   }

@@ -14,8 +14,7 @@ class AppBar extends HTMLElement {
               </div>
           </div>
           <ul class="nav-list">
-              <li class="nav-item"><a href="/">Beranda</a></li>
-              <li class="nav-item"><a href="#section-three">Daftar Restoran</a></li>
+              <li class="nav-item"><a href="#/home">Beranda</a></li>
               <li class="nav-item"><a href="#/favorite">Favorit</a></li>
               <li class="nav-item">
                   <a href="https://www.linkedin.com/in/alvinindra/" target="_blank" rel="noopener noreferrer">Tentang
@@ -26,8 +25,7 @@ class AppBar extends HTMLElement {
           <div id="sideNav" class="sidenav-list">
               <a id="closeNav" aria-label="button close sidebar" href="javascript:void(0)"
                   class="sidenav-list__close">&times;</a>
-              <a href="/">Beranda</a>
-              <a href="#section-three">Daftar Restoran</a>
+              <a href="#/home">Beranda</a>
               <a href="#/favorite">Favorit</a>
               <a href="https://www.linkedin.com/in/alvinindra/" target="_blank" rel="noopener noreferrer">Tentang
                   Kami</a>

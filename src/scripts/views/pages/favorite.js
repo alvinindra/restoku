@@ -14,9 +14,8 @@ const Favorite = {
         Kamu belum memiliki restoran favorit
       `;
     }
-    const totalRest = data.length;
-    data.forEach((restaurant, index) => {
-      listContainer.innerHTML += restoItemTemplate(restaurant, index, totalRest);
+    data.forEach((restaurant) => {
+      listContainer.innerHTML += restoItemTemplate(restaurant);
     });
   },
 };
