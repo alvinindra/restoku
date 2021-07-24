@@ -5,98 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restoku</title>
+    <meta name="keywords" content="Restoku, Bisnis Restoku, Startup Restoku" />
+    <meta name="description" content="Bergabung bersama kami dan tingkatkan penjualanmu" />
+    <meta name="theme-color" content="#EF832A" />
     <link rel="icon" href="./images/favicon.png" />
+    <link rel="apple-touch-icon" href="./images/icons/icon-192x192.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet"
+    <link rel="stylesheet" rel="preload" crossorigin="anonymous"
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap">
-    <link rel="stylesheet"
+    <link rel="stylesheet" rel="preload" crossorigin="anonymous"
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&display=swap">
+    <link rel="manifest" href="manifest.webmanifest">
+    <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
 </head>
 
-<body>
-    <a href="#main-content" class="skip-link">Menuju ke konten</a>
+<body id="bodyContainer">
+    <a href="#mainContent" class="skip-link">Menuju ke konten</a>
     <header>
-        <nav class="nav">
-            <div class="nav-mobile">
-                <div class="nav-logo">
-                    <a href="/" class="nav-logo__restoku">
-                        <img src="./images/logo/logo-restoku.svg" alt="Logo Restoku">
-                    </a>
-                </div>
-            </div>
-            <ul class="nav-list">
-                <li class="nav-item"><a href="/">Beranda</a></li>
-                <li class="nav-item"><a href="#section-three">Daftar Restoran</a></li>
-                <li class="nav-item"><a href="#">Favorit</a></li>
-                <li class="nav-item">
-                    <a href="https://www.linkedin.com/in/alvinindra/" target="_blank" rel="noopener noreferrer">Tentang
-                        Kami</a>
-                </li>
-            </ul>
-            <a id="openNav" href="javascript:void(0)" aria-label="button open sidebar" class="open-nav">&#9776;</a>
-            <div id="sideNav" class="sidenav-list">
-                <a id="closeNav" aria-label="button close sidebar" href="javascript:void(0)" class="sidenav-list__close">&times;</a>
-                <a href="/">Beranda</a>
-                <a href="#section-three">Daftar Restoran</a>
-                <a href="#">Favorit</a>
-                <a href="https://www.linkedin.com/in/alvinindra/" target="_blank" rel="noopener noreferrer">Tentang
-                    Kami</a>
-            </div>
-        </nav>
+        <app-bar />
     </header>
-    <main class="app" id="main-content">
-        <div class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <img class="hero-content__logo" src="./images/logo/logo-restoku-white.svg" alt="Logo Restoku">
-                    <h1 class="hero-content__title">Bergabung bersama kami dan tingkatkan penjualanmu</h1>
-                    <a href="#section-two" class="mt-3 btn btn-white">Jelajahi Sekarang</a>
-                </div>
-            </div>
-        </div>
-        <div class="section-two mb-5" id="section-two">
-            <div class="container title-section mb-5">
-                <img src="./images/logo/logo-restoku.svg" width="200" alt="Logo Restoku">
-            </div>
-            <div class="container resto-content">
-                <div class="resto-content__desc">
-                    <h2 class="mb-4">Apa Itu Restoku?</h2>
-                    <p>Restoku adalah aplikasi dimana para toko bisa berjualan dengan mudah melalui platform ini. Para
-                        toko telah lama bekerja sama dengan Restoku selama 5 tahun.</p><br>
-                    <p>Berdirinya aplikasi ini agar para pemilik toko bisa dengan mudah berjualan daring dan langsung
-                        dengan bantuan Restoku.</p><br>
-                    <p>Awal mula terbangunnya Restoku pada tahun 2016. Kami meneliti tentang bagaimana para pemilik toko
-                        yang mengeluhkan hasil dagangannya tidak laris.
-                        Hingga kamipun mengembangkan aplikasi ini untuk membantu permasalahan para pemilik toko agar
-                        jualannya menjadi laris.
-                    </p>
-                </div>
-                <div class="resto-cover">
-                    <img class="resto-cover__img" src="./images/content/resto-cover-img.png" alt="Company Restoku">
-                </div>
-            </div>
-        </div>
-        <div id="section-three" class="section-three bg-main">
-            <div class="waves-container text-center">
-                <img class="waves-2" src="./images/waves/waves.jpg" alt="">
-                <h1 class="title-section">Daftar Restoran</h1>
-            </div>
-            <div class="list-resto bg-main">
-                <div class="container list-resto__container" id="resto-list">
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer tabindex="0">
-        <ul>
-            <li>
-                Copyright © 2021 - Restoku
-            </li>
-            <li>
-                Dibuat oleh Alvin Indra Pratama
-            </li>
-        </ul>
-    </footer>
+    <main class="app" id="mainContent"></main>
+    <footer-bar />
 </body>
 
 </html>

@@ -1,13 +1,15 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
 const path = require('path');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -19,8 +21,8 @@ module.exports = {
             loader: 'css-loader',
           },
           {
-            loader: 'sass-loader'
-          }
+            loader: 'sass-loader',
+          },
         ],
       },
     ],
@@ -41,6 +43,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
-    })
+    }),
+    new InjectManifest({
+      swSrc: path.resolve(__dirname, 'src/scripts/workbox-sw.js'),
+    }),
   ],
 };

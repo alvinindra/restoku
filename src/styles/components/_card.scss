@@ -4,13 +4,15 @@
   border-radius: 15px;
   padding: 10px 12px;
   text-decoration: none;
+  transition: 0.3s all;
+  cursor: pointer;
 
   .card-cover {
     position: relative;
 
     .card-cover__img {
       width: 100%;
-      max-height: 230px;
+      height: 230px;
       object-fit: cover;
       border-radius: 15px;
       margin-bottom: 0.5rem;
@@ -30,6 +32,8 @@
       color: $white;
 
       img {
+        width: 15px;
+        height: 14px;
         margin-bottom: 0.25rem;
         margin-right: 0.25rem;
       }
@@ -65,6 +69,14 @@
     &__text {
       color: $black-02;
       font-size: 14px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .card-resto {
+    &:hover {
+      transform: translateY(-10px);
     }
   }
 }
