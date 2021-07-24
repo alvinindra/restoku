@@ -1,10 +1,11 @@
+/* eslint-disable indent */
 import CONFIG from '../../globals/config';
 
 const createHomePageTemplate = () => `
   <div class="hero">
     <div class="container">
         <div class="hero-content">
-            <img class="hero-content__logo" src="./images/logo/logo-restoku-white.svg" alt="Logo Restoku">
+            <img class="hero-content__logo" src="./images/logo/logo-restoku-white.svg" alt="Logo Restoku" crossorigin="anonymous">
             <h1 class="hero-content__title">Bergabung bersama kami dan tingkatkan penjualanmu</h1>
             <a href="#section-two" class="mt-3 btn btn-white">Jelajahi Sekarang</a>
         </div>
@@ -13,7 +14,7 @@ const createHomePageTemplate = () => `
 
   <div class="section-two mb-5" id="section-two">
     <div class="container title-section mb-5">
-        <img src="./images/logo/logo-restoku.svg" width="200" alt="Logo Restoku">
+        <img src="./images/logo/logo-restoku.svg" width="200" alt="Logo Restoku" crossorigin="anonymous">
     </div>
     <div class="container resto-content">
       <div class="resto-content__desc">
@@ -29,14 +30,14 @@ const createHomePageTemplate = () => `
           </p>
       </div>
       <div class="resto-cover">
-          <img class="resto-cover__img" src="./images/content/resto-cover-img.png" alt="Company Restoku">
+          <img class="resto-cover__img" src="./images/content/resto-cover-img.png" alt="Company Restoku" crossorigin="anonymous">
       </div>
     </div>
   </div>
 
   <div id="section-three" class="section-three bg-main">
       <div class="waves-container text-center">
-          <img class="waves-2" src="./images/waves/waves.jpg" alt="">
+          <img class="waves-2" src="./images/waves/waves.jpg" alt="" crossorigin="anonymous">
           <h1 class="title-section">Daftar Restoran</h1>
       </div>
       <div class="list-resto bg-main">
@@ -47,10 +48,10 @@ const createHomePageTemplate = () => `
 `;
 
 const restoItemTemplate = (restoItem) => `
-  <div tabindex="0" class="card-resto">
+  <a href="#/detail/${restoItem.id}" tabindex="0" class="card-resto">
     <div class="card-cover">
-      <img class="card-cover__img" draggable="false" src="${CONFIG.BASE_IMAGE_URL + restoItem.pictureId}" alt="${restoItem.name}">
-      <div class="card-cover__rating"><img src="./images/content/star-rating.png" alt="Star"><span>${restoItem.rating}</span></div>
+      <img class="card-cover__img" draggable="false" src="${CONFIG.BASE_IMAGE_URL + restoItem.pictureId}" alt="${restoItem.name}" crossorigin="anonymous">
+      <div class="card-cover__rating"><img src="./images/content/star-rating.png" alt="Star" crossorigin="anonymous"><span>${restoItem.rating}</span></div>
       <div class="card-cover__city">${restoItem.city}</div>
     </div>
     <div class="card-desc">
@@ -59,97 +60,120 @@ const restoItemTemplate = (restoItem) => `
         ${restoItem.description.slice(0, 197)}...
       </p>
     </div>
-  </div>
+  </a>
 `;
 
 const createDetailPageTemplate = () => `
   <div class="container container--detail">
-    <div class="card-detail">
-      <img src="https://placehold.co/375x300?text=Contoh" class="card-detail__img" />
-      <div class="card-detail__text">
-        <div class="text-rating"><img src="./images/content/star-rating.png" alt="Star"><span>4.8</span></div>
-        <div class="text-title">Run chicken Run - Kota Bandung</div>
-        <div class="text-title--desc">Alamat :</div>
-        <p class="text-desc">
-          Jln. Pandeglang no 19, Medan
-        </p>
-        <div class="text-title--desc">Deskripsi Resto :</div>
-        <p class="text-desc">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, peahaeh
-        </p>
-        <p class="text-desc">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, peahaeh
-        </p>
-        <div class="text-title--desc">Kategori :
-          <span class="category">Western</span>
-          <span class="category">Modern</span>
+    <div id="cardDetail"></div>
+    <div id="likeButtonContainer"></div>
+  </div>
+`;
+
+const restoDetailTemplate = (resto) => `
+  <div class="card-detail">
+    <img src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}" class="card-detail__img" alt="${resto.name}" crossorigin="anonymous" />
+    <div class="card-detail__text">
+      <div class="text-rating"><img src="./images/content/star-rating.png" alt="Star" crossorigin="anonymous"><span>${resto.rating}</span></div>
+      <div class="text-title">${resto.name} - Kota ${resto.city}</div>
+      <div class="text-title--desc">Alamat :</div>
+      <p class="text-desc">
+        ${resto.address}
+      </p>
+      <div class="text-title--desc">Deskripsi Resto :</div>
+      <p class="text-desc">
+        ${resto.description}
+      </p>
+      <div class="text-title--desc">Kategori :
+        ${resto.categories.map((category) => `<span class="category">${category.name}</span>`).join('')}
+      </div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card-menu">
+      <h2 class="text-center mb-4">
+        Menu
+      </h2>
+
+      <div class="card-menu__list">
+        <div class="foods">
+          <table>
+            <tr>
+              <th>
+                Makanan
+              </th>
+            </tr>
+            ${resto.menus.foods.map((food) => `<tr><td>${food.name}</td></tr>`).join('')}
+          </table>
         </div>
-        
+        <div class="drinks">
+          <table>
+            <tr>
+              <th>
+                Minuman
+              </th>
+            </tr>
+            ${resto.menus.drinks.map((drink) => `<tr><td>${drink.name}</td></tr>`).join('')}
+          </table>
+        </div>
       </div>
     </div>
 
-    <div class="card-grid">
-      <div class="card-menu">
-        <h2 class="text-center mb-4">
-          Menu
-        </h2>
-
-        <div class="card-menu__list">
-          <div class="foods">
-            <table>
-              <tr>
-                <th>
-                  Makanan
-                </th>
-              </tr>
-              <tr>
-                <td>Ayam Suka Bakar Bumi</td>
-              </tr>
-            </table>
-          </div>
-          <div class="drinks">
-            <table>
-              <tr>
-                <th>
-                  Minuman
-                </th>
-              </tr>
-              <tr>
-                <td>Dalgona Milkshake</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <form class="form-review">
-        <h2 class="mb-4 text-center">Ulasan</h2>
-        <div class="form-review__list">
-          <div class="review">
+    <div class="form-review">
+      <h2 class="mb-4 text-center">Ulasan</h2>
+      <div class="form-review__list">
+        ${resto.customerReviews.map((review) =>
+          `<div class="review">
             <div class="review__name">
-              Alvin Indra
+              ${review.name}
             </div>
             <div class="review__desc">
-              Wah tempatnya nyaman banget!
+              ${review.review}
             </div>
             <div class="review__date">
-              18 Juli 2021
+            ${review.date}
             </div>
             <hr />
           </div>
-        </div>
-        <div class="mb-4">
-          <input type="text" placeholder="Nama" class="form-review__input" id="inputName">
-          <textarea placeholder="Tulis Ulasan" class="form-review__input" aria-label="Tulis Ulasan" id="inputReview"></textarea>
-        </div>
-        <button id="submit-review" type="submit" aria-label="Kirim Ulasan" class="btn btn-primary">Kirim Ulasan</button>
-      </form>
+        `).join('')}
+      </div>
+      <div class="mb-3">
+        <input type="text" placeholder="Nama" class="form-review__input" aria-label="Tulis Nama" id="inputName">
+        <textarea placeholder="Tulis Ulasan" class="form-review__input" aria-label="Tulis Ulasan" id="inputReview"></textarea>
+      </div>
+      <div class="mb-3" id="warningPost"></div>
+      <button id="sendReview" aria-label="Kirim Ulasan" class="btn btn-primary mt-3">Kirim Ulasan</button>
     </div>
   </div>
+`;
+
+const createFavoritePageTemplate = () => `
+  <div class="container container--favorite">
+    <h2 class="title-container">Restoran Favorit</h2>
+    <section class="list-favorite" id="listFavorite"></section>
+    </div>
+  </div>
+`;
+
+const createLikeButtonTemplate = () => `
+  <button aria-label="Favoritkan Resto Ini" id="likeButton" class="favorite">
+     <i class="fa fa-heart-o" aria-hidden="true"></i>
+  </button>
+`;
+
+const createLikedButtonTemplate = () => `
+  <button aria-label="Hapus Dari Favorit Resto Ini" id="likeButton" class="favorite">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </button>
 `;
 
 export {
   createHomePageTemplate,
   restoItemTemplate,
   createDetailPageTemplate,
+  restoDetailTemplate,
+  createFavoritePageTemplate,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
 };

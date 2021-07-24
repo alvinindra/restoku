@@ -9,14 +9,14 @@ class AppBar extends HTMLElement {
           <div class="nav-mobile">
               <div class="nav-logo">
                   <a href="/" class="nav-logo__restoku">
-                      <img src="./images/logo/logo-restoku.svg" alt="Logo Restoku">
+                      <img src="./images/logo/logo-restoku.svg" alt="Logo Restoku" crossorigin="anonymous">
                   </a>
               </div>
           </div>
           <ul class="nav-list">
               <li class="nav-item"><a href="/">Beranda</a></li>
               <li class="nav-item"><a href="#section-three">Daftar Restoran</a></li>
-              <li class="nav-item"><a href="#">Favorit</a></li>
+              <li class="nav-item"><a href="#/favorite">Favorit</a></li>
               <li class="nav-item">
                   <a href="https://www.linkedin.com/in/alvinindra/" target="_blank" rel="noopener noreferrer">Tentang
                       Kami</a>
@@ -28,7 +28,7 @@ class AppBar extends HTMLElement {
                   class="sidenav-list__close">&times;</a>
               <a href="/">Beranda</a>
               <a href="#section-three">Daftar Restoran</a>
-              <a href="#">Favorit</a>
+              <a href="#/favorite">Favorit</a>
               <a href="https://www.linkedin.com/in/alvinindra/" target="_blank" rel="noopener noreferrer">Tentang
                   Kami</a>
           </div>

@@ -1,6 +1,7 @@
 import 'regenerator-runtime';
 import '../styles/main.scss';
 import './views/components/app-bar';
+import './views/components/footer-bar';
 
 import App from './views/app';
 import swRegister from './utils/sw-register';
@@ -13,6 +14,7 @@ const app = new App({
 });
 
 window.addEventListener('hashchange', () => {
+  document.querySelector('header').scrollIntoView();
   app.renderPage();
 });
 
