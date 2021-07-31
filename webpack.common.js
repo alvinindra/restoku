@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
@@ -47,6 +48,27 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
+    }),
+    new WebpackPwaManifest({
+      filename: 'manifest.webmanifest',
+      name: 'Restoku',
+      short_name: 'Restoku',
+      description: 'Bergabung bersama kami dan tingkatkan penjualanmu!',
+      start_url: '/',
+      display: 'standalone',
+      background_color: '#FFFFFF',
+      theme_color: '#EF832A',
+      inject: true,
+      fingerprints: true,
+      ios: true,
+      icons: [
+        {
+          src: path.resolve('src', 'public/images/icons', 'icon.png'),
+          sizes: [72, 96, 128, 144, 152, 192, 384, 512],
+          ios: true,
+          purpose: 'any maskable',
+        },
+      ],
     }),
     new InjectManifest({
       swSrc: path.resolve(__dirname, 'src/scripts/workbox-sw.js'),
