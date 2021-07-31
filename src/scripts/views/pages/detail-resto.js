@@ -29,6 +29,15 @@ const Detail = {
       const inputName = document.querySelector('#inputName');
       const inputReview = document.querySelector('#inputReview');
       const warningPost = document.querySelector('#warningPost');
+      const formContainer = document.querySelector('#formContainer');
+      if (window.navigator.onLine) {
+        formContainer.style.display = 'block';
+        warningPost.style.display = 'none';
+      } else {
+        formContainer.style.display = 'none';
+        warningPost.style.display = 'block';
+        warningPost.innerHTML = 'Karena Anda sedang offline fitur review tidak tersedia';
+      }
       warningPost.style.display = 'none';
 
       btnSend.addEventListener('click', (event) => {
