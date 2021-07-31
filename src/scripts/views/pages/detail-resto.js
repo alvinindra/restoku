@@ -15,7 +15,6 @@ const Detail = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const containerDetail = document.querySelector('#cardDetail');
     const loading = document.querySelector('loading-indicator');
-    document.querySelector('header').scrollIntoView();
 
     try {
       const resp = await RestoSource.detailRestaurant(url.id);
@@ -28,6 +27,7 @@ const Detail = {
       });
 
       loading.style.display = 'none';
+      document.querySelector('header').scrollIntoView();
 
       const btnSend = document.querySelector('#sendReview');
       const inputName = document.querySelector('#inputName');
