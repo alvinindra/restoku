@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import CONFIG from '../../globals/config';
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 const createHomePageTemplate = () => `
   <div class="hero">
@@ -14,7 +14,7 @@ const createHomePageTemplate = () => `
 
   <div class="section-two mb-5" id="section-two">
     <div class="container title-section mb-5">
-        <img src="./images/logo/logo-restoku.svg" width="200" alt="Logo Restoku" crossorigin="anonymous">
+      <img src="./images/logo/logo-restoku.svg" width="200" alt="Logo Restoku" crossorigin="anonymous">
     </div>
     <div class="container resto-content">
       <div class="resto-content__desc">
@@ -30,14 +30,29 @@ const createHomePageTemplate = () => `
           </p>
       </div>
       <div class="resto-cover">
-          <img class="resto-cover__img" src="./images/content/resto-cover-img.png" alt="Company Restoku" crossorigin="anonymous">
+          <picture>
+            <source media="(max-width: 1000px)" type="image/webp" srcset="./images/content/resto-cover-img-medium.webp">
+            <source media="(max-width: 1000px)" type="image/jpeg" srcset="./images/content/resto-cover-img-medium.jpg">
+            <img class="resto-cover__img" 
+              src="./images/content/resto-cover-img.jpg" 
+              srcset="
+                ./images/content/resto-cover-img-medium.jpg 1000w,
+                ./images/content/resto-cover-img-large.jpg 1200w
+              "
+              alt="" 
+              crossorigin="anonymous">
+          </picture>
       </div>
     </div>
   </div>
 
   <div id="section-three" class="section-three bg-main">
       <div class="waves-container text-center">
-          <img class="waves-2" src="./images/waves/waves.jpg" alt="" crossorigin="anonymous">
+          <picture>
+            <source type="image/webp" srcset="./images/waves/waves.webp">
+            <source type="image/jpeg" srcset="./images/waves/waves.jpg">
+            <img class="waves-2" src="./images/waves/waves.jpg" alt="" crossorigin="anonymous">
+          </picture>
           <h1 class="title-section">Daftar Restoran</h1>
       </div>
       <div class="list-resto bg-main">
@@ -45,13 +60,18 @@ const createHomePageTemplate = () => `
           </div>
       </div>
   </div>
+
+  <loading-indicator></loading-indicator>
 `;
 
 const restoItemTemplate = (restoItem) => `
   <a href="#/detail/${restoItem.id}" tabindex="0" class="card-resto">
     <div class="card-cover">
-      <img class="card-cover__img" draggable="false" src="${CONFIG.BASE_IMAGE_URL + restoItem.pictureId}" alt="${restoItem.name}" crossorigin="anonymous">
-      <div class="card-cover__rating"><img src="./images/content/star-rating.png" alt="Star" crossorigin="anonymous"><span>${restoItem.rating}</span></div>
+      <img class="card-cover__img lazyload" draggable="false" 
+      src="./images/placeholder.jpg"
+      data-src="${API_ENDPOINT.IMAGES.SMALL + restoItem.pictureId}" 
+      alt="${restoItem.name}" crossorigin="anonymous">
+      <div class="card-cover__rating"><img src="./images/icons/star-rating.png" alt="Star" crossorigin="anonymous"><span>${restoItem.rating}</span></div>
       <div class="card-cover__city">${restoItem.city}</div>
     </div>
     <div class="card-desc">
@@ -67,14 +87,24 @@ const createDetailPageTemplate = () => `
   <div class="container container--detail">
     <div id="cardDetail"></div>
     <div id="likeButtonContainer"></div>
+    <loading-indicator></loading-indicator>
   </div>
 `;
 
 const restoDetailTemplate = (resto) => `
   <div class="card-detail">
-    <img src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}" class="card-detail__img" alt="${resto.name}" crossorigin="anonymous" />
+    <img
+      src="${API_ENDPOINT.IMAGES.MEDIUM + resto.pictureId}"
+      srcset="
+        ${API_ENDPOINT.IMAGES.SMALL + resto.pictureId} 501w,
+        ${API_ENDPOINT.IMAGES.MEDIUM + resto.pictureId} 991w,
+      "
+      sizes="(max-width: 501px) 501px, 991px" 
+      class="card-detail__img lazyload" 
+      alt="${resto.name}" 
+      crossorigin="anonymous" />
     <div class="card-detail__text">
-      <div class="text-rating"><img src="./images/content/star-rating.png" alt="Star" crossorigin="anonymous"><span>${resto.rating}</span></div>
+      <div class="text-rating"><img src="./images/icons/star-rating.png" alt="Star" crossorigin="anonymous"><span>${resto.rating}</span></div>
       <div class="text-title">${resto.name} - Kota ${resto.city}</div>
       <div class="text-title--desc">Alamat :</div>
       <p class="text-desc">
@@ -138,12 +168,14 @@ const restoDetailTemplate = (resto) => `
           </div>
         `).join('')}
       </div>
-      <div class="mb-3">
-        <input type="text" placeholder="Nama" class="form-review__input" aria-label="Tulis Nama" id="inputName">
-        <textarea placeholder="Tulis Ulasan" class="form-review__input" aria-label="Tulis Ulasan" id="inputReview"></textarea>
+      <div id="formContainer">
+        <div class="mb-3">
+          <input type="text" placeholder="Nama" class="form-review__input" aria-label="Tulis Nama" id="inputName">
+          <textarea placeholder="Tulis Ulasan" class="form-review__input" aria-label="Tulis Ulasan" id="inputReview"></textarea>
+        </div>
+        <div class="mb-3" id="warningPost"></div>
+        <button id="sendReview" aria-label="Kirim Ulasan" class="btn btn-primary mt-3">Kirim Ulasan</button>
       </div>
-      <div class="mb-3" id="warningPost"></div>
-      <button id="sendReview" aria-label="Kirim Ulasan" class="btn btn-primary mt-3">Kirim Ulasan</button>
     </div>
   </div>
 `;
@@ -168,6 +200,10 @@ const createLikedButtonTemplate = () => `
   </button>
 `;
 
+const createLoadingTemplate = () => `
+  <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+`;
+
 export {
   createHomePageTemplate,
   restoItemTemplate,
@@ -176,4 +212,5 @@ export {
   createFavoritePageTemplate,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
+  createLoadingTemplate,
 };

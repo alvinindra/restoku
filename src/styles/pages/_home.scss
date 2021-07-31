@@ -7,7 +7,13 @@
   }
 }
 .hero {
-  background: url("/images/heros/hero-image.jpg") no-repeat center;
+  background-image: -webkit-image-set(
+    url("/images/heros/hero-image-smaller.jpg") 1x,
+    url("/images/heros/hero-image.jpg") 2x
+  );
+  background-image: image-set(url("/images/heros/hero-image-smaller.jpg") 1x, url("/images/heros/hero-image.jpg") 2x);
+  background-repeat: no-repeat;
+  background-position: center;
   background-blend-mode: darken;
   background-size: cover;
   width: 100%;
@@ -59,6 +65,7 @@
   .resto-cover {
     &__img {
       height: 500px;
+      border-radius: 16px;
       box-shadow: 2px 2px 50px 2px rgba(0, 0, 0, 0.05);
     }
   }

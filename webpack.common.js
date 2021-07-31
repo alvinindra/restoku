@@ -1,8 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { InjectManifest } = require('workbox-webpack-plugin');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
+const imageminPngquant = require('imagemin-pngquant');
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -10,6 +15,29 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 20000,
+      maxSize: 50000,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      automaticNameDelimiter: '~',
+      enforceSizeThreshold: 50000,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
+    },
   },
   module: {
     rules: [
@@ -44,8 +72,51 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new WebpackPwaManifest({
+      filename: 'manifest.webmanifest',
+      name: 'Restoku',
+      short_name: 'Restoku',
+      description: 'Bergabung bersama kami dan tingkatkan penjualanmu!',
+      start_url: '/',
+      display: 'standalone',
+      background_color: '#FFFFFF',
+      theme_color: '#EF832A',
+      inject: true,
+      fingerprints: true,
+      ios: true,
+      icons: [
+        {
+          src: path.resolve('src', 'public/images/icons', 'icon.png'),
+          sizes: [72, 96, 128, 144, 152, 192, 384, 512],
+          ios: true,
+          purpose: 'any maskable',
+        },
+      ],
+    }),
     new InjectManifest({
       swSrc: path.resolve(__dirname, 'src/scripts/workbox-sw.js'),
+    }),
+    new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
+        imageminPngquant({
+          quality: [0.3, 0.5],
+        }),
+      ],
+    }),
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 50,
+          },
+        },
+      ],
+      overrideExtension: true,
     }),
   ],
 };

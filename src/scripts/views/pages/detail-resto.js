@@ -1,3 +1,4 @@
+import '../components/loading';
 import UrlParser from '../../routes/url-parser';
 import RestoSource from '../../data/resto-source';
 import { createDetailPageTemplate, restoDetailTemplate } from '../templates/template-creator';
@@ -13,7 +14,7 @@ const Detail = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const containerDetail = document.querySelector('#cardDetail');
-    document.querySelector('header').scrollIntoView();
+    const loading = document.querySelector('loading-indicator');
 
     try {
       const resp = await RestoSource.detailRestaurant(url.id);
@@ -25,10 +26,22 @@ const Detail = {
         resp,
       });
 
+      loading.style.display = 'none';
+      document.querySelector('header').scrollIntoView();
+
       const btnSend = document.querySelector('#sendReview');
       const inputName = document.querySelector('#inputName');
       const inputReview = document.querySelector('#inputReview');
       const warningPost = document.querySelector('#warningPost');
+      const formContainer = document.querySelector('#formContainer');
+      if (window.navigator.onLine) {
+        formContainer.style.display = 'block';
+        warningPost.style.display = 'none';
+      } else {
+        formContainer.style.display = 'none';
+        warningPost.style.display = 'block';
+        warningPost.innerHTML = 'Karena Anda sedang offline fitur review tidak tersedia';
+      }
       warningPost.style.display = 'none';
 
       btnSend.addEventListener('click', (event) => {
@@ -47,6 +60,7 @@ const Detail = {
       });
     } catch (error) {
       containerDetail.innerHTML = `Error: ${error}, muat ulang halaman!`;
+      loading.style.display = 'none';
     }
   },
 };

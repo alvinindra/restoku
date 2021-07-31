@@ -34,6 +34,10 @@ const FavRestoIdb = {
   async deleteResto(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
   },
+
+  async deleteAllResto() {
+    return (await dbPromise).clear(OBJECT_STORE_NAME);
+  },
 };
 
 export default FavRestoIdb;
