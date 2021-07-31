@@ -75,7 +75,7 @@ const restoItemTemplate = (restoItem) => `
       <div class="card-cover__city">${restoItem.city}</div>
     </div>
     <div class="card-desc">
-      <h3 class="card-title mx-3">${restoItem.name}</h3>
+      <h2 class="card-title mx-3">${restoItem.name}</h2>
       <p class="card-desc__text">
         ${restoItem.description.slice(0, 197)}...
       </p>
