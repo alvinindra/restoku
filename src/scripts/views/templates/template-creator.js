@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import CONFIG from '../../globals/config';
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 const createHomePageTemplate = () => `
   <div class="hero">
@@ -60,12 +60,16 @@ const createHomePageTemplate = () => `
           </div>
       </div>
   </div>
+
+  <loading-indicator></loading-indicator>
 `;
 
 const restoItemTemplate = (restoItem) => `
   <a href="#/detail/${restoItem.id}" tabindex="0" class="card-resto">
     <div class="card-cover">
-      <img class="card-cover__img" draggable="false" src="${CONFIG.BASE_IMAGE_URL + restoItem.pictureId}" alt="${restoItem.name}" crossorigin="anonymous">
+      <img class="card-cover__img lazyload" draggable="false" 
+      src="${API_ENDPOINT.IMAGES.SMALL + restoItem.pictureId}" 
+      alt="${restoItem.name}" crossorigin="anonymous">
       <div class="card-cover__rating"><img src="./images/icons/star-rating.png" alt="Star" crossorigin="anonymous"><span>${restoItem.rating}</span></div>
       <div class="card-cover__city">${restoItem.city}</div>
     </div>
@@ -82,12 +86,22 @@ const createDetailPageTemplate = () => `
   <div class="container container--detail">
     <div id="cardDetail"></div>
     <div id="likeButtonContainer"></div>
+    <loading-indicator></loading-indicator>
   </div>
 `;
 
 const restoDetailTemplate = (resto) => `
   <div class="card-detail">
-    <img src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}" class="card-detail__img" alt="${resto.name}" crossorigin="anonymous" />
+    <img
+      src="${API_ENDPOINT.IMAGES.MEDIUM + resto.pictureId}"
+      srcset="
+        ${API_ENDPOINT.IMAGES.SMALL + resto.pictureId} 501w,
+        ${API_ENDPOINT.IMAGES.MEDIUM + resto.pictureId} 991w,
+      "
+      sizes="(max-width: 501px) 501px, 991px" 
+      class="card-detail__img lazyload" 
+      alt="${resto.name}" 
+      crossorigin="anonymous" />
     <div class="card-detail__text">
       <div class="text-rating"><img src="./images/icons/star-rating.png" alt="Star" crossorigin="anonymous"><span>${resto.rating}</span></div>
       <div class="text-title">${resto.name} - Kota ${resto.city}</div>
@@ -185,6 +199,10 @@ const createLikedButtonTemplate = () => `
   </button>
 `;
 
+const createLoadingTemplate = () => `
+  <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+`;
+
 export {
   createHomePageTemplate,
   restoItemTemplate,
@@ -193,4 +211,5 @@ export {
   createFavoritePageTemplate,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
+  createLoadingTemplate,
 };

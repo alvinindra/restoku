@@ -1,3 +1,4 @@
+import '../components/loading';
 import UrlParser from '../../routes/url-parser';
 import RestoSource from '../../data/resto-source';
 import { createDetailPageTemplate, restoDetailTemplate } from '../templates/template-creator';
@@ -13,6 +14,7 @@ const Detail = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const containerDetail = document.querySelector('#cardDetail');
+    const loading = document.querySelector('loading-indicator');
     document.querySelector('header').scrollIntoView();
 
     try {
@@ -24,6 +26,8 @@ const Detail = {
         favoriteResto: FavRestoIdb,
         resp,
       });
+
+      loading.style.display = 'none';
 
       const btnSend = document.querySelector('#sendReview');
       const inputName = document.querySelector('#inputName');
@@ -56,6 +60,7 @@ const Detail = {
       });
     } catch (error) {
       containerDetail.innerHTML = `Error: ${error}, muat ulang halaman!`;
+      loading.style.display = 'none';
     }
   },
 };
