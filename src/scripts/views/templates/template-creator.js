@@ -68,7 +68,8 @@ const restoItemTemplate = (restoItem) => `
   <a href="#/detail/${restoItem.id}" tabindex="0" class="card-resto">
     <div class="card-cover">
       <img class="card-cover__img lazyload" draggable="false" 
-      src="${API_ENDPOINT.IMAGES.SMALL + restoItem.pictureId}" 
+      src="./images/placeholder.jpg"
+      data-src="${API_ENDPOINT.IMAGES.SMALL + restoItem.pictureId}" 
       alt="${restoItem.name}" crossorigin="anonymous">
       <div class="card-cover__rating"><img src="./images/icons/star-rating.png" alt="Star" crossorigin="anonymous"><span>${restoItem.rating}</span></div>
       <div class="card-cover__city">${restoItem.city}</div>

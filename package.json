@@ -8,6 +8,8 @@
     "dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "build-image": "node sharp.js",
+    "analyze-dev": "webpack --config webpack.analyzer.dev.js",
+    "analyze-prod": "webpack --config webpack.analyzer.prod.js",
     "test": "karma start",
     "e2e": "codeceptjs run --steps"
   },
@@ -40,6 +42,7 @@
     "puppeteer": "^10.1.0",
     "sharp": "^0.28.3",
     "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.0.9",
