@@ -21,3 +21,13 @@ Scenario('User review a restaurant', async ({ I }) => {
   I.seeElement(locate('.review__name').last().withText(nameReviewer));
   I.seeElement(locate('.review__desc').last().withText(textReviewer));
 });
+
+const warningPost = 'Input tidak boleh kosong';
+
+Scenario('User review a restaurant without name and review', async ({ I }) => {
+  I.seeElement('.form-review__list');
+  I.seeElement('.form-review');
+  I.click('#sendReview');
+
+  I.seeElement(locate('#warningPost').withText(warningPost));
+});
