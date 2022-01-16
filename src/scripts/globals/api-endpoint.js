@@ -5,9 +5,9 @@ const API_ENDPOINT = {
   DETAIL: (id) => `${CONFIG.BASE_URL}detail/${id}`,
   POST_REVIEW: `${CONFIG.BASE_URL}review`,
   IMAGES: {
-    SMALL: `${CONFIG.BASE_URL}/images/small/`,
-    MEDIUM: `${CONFIG.BASE_URL}/images/medium/`,
-    LARGE: `${CONFIG.BASE_URL}/images/large/`,
+    SMALL: `${CONFIG.BASE_URL}images/small/`,
+    MEDIUM: `${CONFIG.BASE_URL}images/medium/`,
+    LARGE: `${CONFIG.BASE_URL}images/large/`,
   },
 };
 
