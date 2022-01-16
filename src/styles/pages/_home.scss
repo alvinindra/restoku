@@ -8,10 +8,10 @@
 }
 .hero {
   background-image: -webkit-image-set(
-    url("/images/heros/hero-image-smaller.jpg") 1x,
-    url("/images/heros/hero-image.jpg") 2x
+    url("/images/heros/hero-image.jpg") 1x,
+    url("/images/heros/hero-image-small.jpg") 2x
   );
-  background-image: image-set(url("/images/heros/hero-image-smaller.jpg") 1x, url("/images/heros/hero-image.jpg") 2x);
+  background-image: image-set(url("/images/heros/hero-image.jpg") 1x, url("/images/heros/hero-image-small.jpg") 2x);
   background-repeat: no-repeat;
   background-position: center;
   background-blend-mode: darken;
